@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BasicCourse",
+    "\\BasicCourse\\Controllers"
   ],
-  "SelectedNode": "\\BasicCourse.sln",
+  "SelectedNode": "\\BasicCourse\\Controllers\\CategoryController.cs",
   "PreviewInSolutionExplorer": false
 }
