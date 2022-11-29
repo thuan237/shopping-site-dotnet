@@ -1,7 +1,9 @@
 ﻿using BasicCourse.Data;
 using BasicCourse.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace BasicCourse.Controllers
 {
@@ -35,6 +37,7 @@ namespace BasicCourse.Controllers
         }
 
         [HttpPost]
+        //[Authorize]
         public IActionResult CreateCategoryNew(CategoryModel model) {
             try
             {
@@ -44,11 +47,12 @@ namespace BasicCourse.Controllers
                 };
                 _context.Add(category);
                 _context.SaveChanges();
-                return Ok(new
-                {
-                    success = true,
-                    Data = category
-                });
+                //return Ok(new
+                //{
+                //    success = true,
+                //    Data = category
+                //});
+                return StatusCode(StatusCodes.Status201Created, category);
             }
             catch { 
                 return BadRequest(); 
@@ -64,6 +68,21 @@ namespace BasicCourse.Controllers
                 category.category_name = model.category_name;
                 _context.SaveChanges();
                 return NoContent();
+            }
+            else { return NotFound(); };
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteCategoryById(int id)
+        {
+            var category = _context.Categories.SingleOrDefault(x => x.category_id == id);
+            if (category != null)
+            {
+                _context.Remove(category);
+                _context.SaveChanges();
+                return StatusCode(StatusCodes.Status200OK);
+                //return Ok(
+                //category);
             }
             else { return NotFound(); };
         }
