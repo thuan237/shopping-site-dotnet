@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\BasicCourse",
-    "\\BasicCourse\\Controllers"
+    "\\BasicCourse\\Migrations"
   ],
-  "SelectedNode": "\\BasicCourse\\Controllers\\CategoryController.cs",
+  "SelectedNode": "\\BasicCourse\\Migrations\\20221128133818_init_data_model.cs",
   "PreviewInSolutionExplorer": false
 }

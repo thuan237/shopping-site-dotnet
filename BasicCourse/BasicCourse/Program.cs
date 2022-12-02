@@ -3,12 +3,19 @@ using Microsoft.AspNetCore;
 using System;
 using BasicCourse.Data;
 using Microsoft.EntityFrameworkCore;
+using BasicCourse.Services;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        // service class declaration
+        var services = builder.Services;
+
+        // service product declaration
+        services.AddScoped<IProductRepository, ProductRepository>();
 
         //Config dbcontext
         builder.Services.AddDbContext<MyDbContext>(options =>
