@@ -12,6 +12,8 @@ namespace BasicCourse.Data
 
         public DbSet<Order> Orders { get; set; }
         public DbSet<DetailOrder> DetailOrders { get; set; }
+        
+        public DbSet<User> Users { get; set; }
         #endregion
 
         //định nghĩa fluent api
@@ -41,6 +43,12 @@ namespace BasicCourse.Data
                         .WithMany(e => e.detailOrders)
                         .HasForeignKey(e => e.product_id)
                         .HasConstraintName("FK_OrderDetail_Product");
+            });
+
+            modelBuilder.Entity<User>(e => {
+                e.HasIndex(e => e.username).IsUnique();
+                e.Property(e => e.full_name).IsRequired().HasMaxLength(150);
+                e.Property(e => e.email).IsRequired().HasMaxLength(150);
             });
         }
     }

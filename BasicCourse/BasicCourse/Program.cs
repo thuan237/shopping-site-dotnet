@@ -1,9 +1,16 @@
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore;
 using System;
 using BasicCourse.Data;
 using Microsoft.EntityFrameworkCore;
 using BasicCourse.Services;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text.Unicode;
+using FluentAssertions.Common;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.OpenApi.Writers;
+using Microsoft.IdentityModel.Tokens;
 
 internal class Program
 {
@@ -22,6 +29,27 @@ internal class Program
             options.UseSqlServer(builder.Configuration.GetConnectionString("MyDB"))
         );
 
+        // jwt
+        var secretKey = builder.Configuration["AppSettings :SecretKey"];
+        var secretKeyBytes = Encoding.UTF8.GetBytes(secretKey);
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(opt => {
+                opt.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    // tự cấp token 
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+
+                    // ký vào token
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(secretKeyBytes),
+
+                    ClockSkew = TimeSpan.Zero
+                };
+           });
+
+
+
         // Add services to the container.
 
         builder.Services.AddControllers();
@@ -39,6 +67,8 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
+
+        app.UseAuthentication();
 
         app.UseAuthorization();
 
