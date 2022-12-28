@@ -1,13 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "3uCEDBbD3Xm1rzSpR97o9QY2x2rIXqeWqwP5x5DvcLhh3/5kHRqAFEXnyNiNzcZ5Ddtmc6LiyjTcAAEXciTEYg==",
+  "dgSpecHash": "Vxe9Sibastcvbt7QyrJ9cXxNAik0U5UqvYIjvXh3kUj2O7E94fD8M+XTYq1I333UAJdvaKphI+8jOjWNSyYOdA==",
   "success": true,
   "projectFilePath": "D:\\.net\\shopping-site-dotnet\\BasicCourse\\BasicCourse\\BasicCourse.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\congt\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\congt\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\congt\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
-    "C:\\Users\\congt\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.1\\microsoft.aspnetcore.authentication.jwtbearer.6.0.1.nupkg.sha512",
     "C:\\Users\\congt\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\congt\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\congt\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
